@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="GtMQ9n" name="Compressor" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              companyName="HarveyFretwell" pluginVST3Category="Dynamics,Fx"
+              pluginRTASCategory="2,8192" pluginAAXCategory="2,8192" cppLanguageStandard="17">
+  <MAINGROUP id="ZFXs1A" name="Compressor">
+    <GROUP id="{512938AD-BC71-55D7-5573-4FA18DD44DB9}" name="Source">
+      <GROUP id="{958D92D4-4C79-B1CC-ABD2-AC99BB848298}" name="Audio">
+        <FILE id="UfQtoG" name="CompressorEffect.cpp" compile="1" resource="0"
+              file="Source/CompressorEffect.cpp"/>
+        <FILE id="MWapC1" name="CompressorEffect.h" compile="0" resource="0"
+              file="Source/CompressorEffect.h"/>
+        <FILE id="eZppbD" name="CircularBuffer.cpp" compile="1" resource="0"
+              file="Source/CircularBuffer.cpp"/>
+        <FILE id="Z3bDdP" name="CircularBuffer.h" compile="0" resource="0"
+              file="Source/CircularBuffer.h"/>
+      </GROUP>
+      <GROUP id="{3E99174D-A97A-1020-3723-37938F7A8B14}" name="GUI">
+        <GROUP id="{EF8301D5-8297-EAE0-96A7-DB91415A12C6}" name="LookAndFeel">
+          <FILE id="y7FFIN" name="CustomLookAndFeel.cpp" compile="1" resource="0"
+                file="Source/CustomLookAndFeel.cpp"/>
+          <FILE id="DCpGSp" name="CustomLookAndFeel.h" compile="0" resource="0"
+                file="Source/CustomLookAndFeel.h"/>
+        </GROUP>
+        <GROUP id="{05307864-52DF-255E-8EA8-A9AA41D9E54F}" name="Components">
+          <GROUP id="{E0FC227F-0F7F-6239-60F8-5248C49E0F58}" name="Dials">
+            <FILE id="j6gsbL" name="DialBox.cpp" compile="1" resource="0" file="Source/DialBox.cpp"/>
+            <FILE id="qE6ltC" name="DialBox.h" compile="0" resource="0" file="Source/DialBox.h"/>
+          </GROUP>
+          <GROUP id="{50E34FE0-B207-13E2-D020-28AB9B78D7C7}" name="Sliders">
+            <FILE id="I0h23w" name="SliderBox.cpp" compile="1" resource="0" file="Source/SliderBox.cpp"/>
+            <FILE id="NCSLcf" name="SliderBox.h" compile="0" resource="0" file="Source/SliderBox.h"/>
+            <FILE id="QlBGi3" name="LabeledSlider.cpp" compile="1" resource="0"
+                  file="Source/LabeledSlider.cpp"/>
+            <FILE id="vcwS37" name="LabeledSlider.h" compile="0" resource="0" file="Source/LabeledSlider.h"/>
+          </GROUP>
+          <GROUP id="{506F5CB5-17D0-F5AD-7E2D-B68906DD52D8}" name="Buttons">
+            <FILE id="lF95KC" name="ButtonBox.cpp" compile="1" resource="0" file="Source/ButtonBox.cpp"/>
+            <FILE id="u3XJPk" name="ButtonBox.h" compile="0" resource="0" file="Source/ButtonBox.h"/>
+            <FILE id="wfljxQ" name="CustomButton.cpp" compile="1" resource="0"
+                  file="Source/CustomButton.cpp"/>
+            <FILE id="xar3GO" name="CustomButton.h" compile="0" resource="0" file="Source/CustomButton.h"/>
+          </GROUP>
+        </GROUP>
+      </GROUP>
+      <FILE id="YhEan5" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="j22LeV" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="sJHzpG" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="ajjmgs" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Compressor"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Compressor"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../../../Program Files/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../../../Program Files/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../../../Program Files/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../../../../Program Files/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../../../Program Files/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../../../Program Files/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../../../Program Files/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../../../Program Files/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../../../Program Files/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../../../Program Files/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../../../Program Files/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../../../Program Files/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2019>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
