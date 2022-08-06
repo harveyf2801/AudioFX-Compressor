@@ -29,10 +29,14 @@ CompressorAudioProcessorEditor::CompressorAudioProcessorEditor (CompressorAudioP
     addAndMakeVisible(sliderBox);
 
     // Setting the overal size and limits of the editor window ...
-    setSize(2000, 400); // ( width, height )
+    juce::Rectangle<int> screenSize = juce::Desktop::getInstance().getDisplays().getMainDisplay().userArea;
+    int width = screenSize.getWidth();
+    int height = screenSize.getHeight();
+
+    setSize(width*0.8, height*0.8); // ( width, height )
 
     setResizable(true, true); // ( allow host DAW to resize, allow user to resize )
-    setResizeLimits(600, 500, 2000, 1000); // (min w, min h, max w, max h)
+    setResizeLimits(600, 500, width, height); // (min w, min h, max w, max h)
 }
 
 CompressorAudioProcessorEditor::~CompressorAudioProcessorEditor()

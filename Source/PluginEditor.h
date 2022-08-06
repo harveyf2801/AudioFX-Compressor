@@ -53,8 +53,6 @@ private:
     SliderBox sliderBox;
     
     CustomLookAndFeel customLookAndFeel;
-    
-
 
     //==============================================================================
 

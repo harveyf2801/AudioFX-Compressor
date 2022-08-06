@@ -219,7 +219,7 @@ void CompressorAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, ju
     {
         // Sync both buffers together ...
         auto* channelData = buffer.getWritePointer(channel);
-        CompressorEffect* comp = &multichannelCompressor.getReference(channel);;
+        CompressorEffect* comp = &multichannelCompressor.getReference(channel);
         
         // Itterate through each sample ...
         for (auto i = 0; i < buffer.getNumSamples(); ++i)
