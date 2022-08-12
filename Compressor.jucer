@@ -22,6 +22,10 @@
                 file="Source/CustomLookAndFeel.cpp"/>
           <FILE id="DCpGSp" name="CustomLookAndFeel.h" compile="0" resource="0"
                 file="Source/CustomLookAndFeel.h"/>
+          <FILE id="C945T9" name="CustomLookAndFeelCopy.cpp" compile="1" resource="0"
+                file="Source/CustomLookAndFeelCopy.cpp"/>
+          <FILE id="ZnElxV" name="CustomLookAndFeelCopy.h" compile="0" resource="0"
+                file="Source/CustomLookAndFeelCopy.h"/>
         </GROUP>
         <GROUP id="{05307864-52DF-255E-8EA8-A9AA41D9E54F}" name="Components">
           <GROUP id="{E0FC227F-0F7F-6239-60F8-5248C49E0F58}" name="Dials">

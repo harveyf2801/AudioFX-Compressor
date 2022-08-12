@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    CustomLookAndFeel.h
+    CustomLookAndFeelCopy.h
     Author:  Harvey Fretwell
 
   ==============================================================================
@@ -14,12 +14,14 @@
 #include <JuceHeader.h>
 
 // Create a new class inheriting from the look and feel class ...
-class CustomLookAndFeel : public juce::LookAndFeel_V4
+class CustomLookAndFeelCopy : public juce::LookAndFeel_V4
 {
     
 /* Creating a custom look and feel class for our widgets. */
     
 private:
+    // Create a random integer number generator ...
+    juce::Random randomInt = juce::Random::getSystemRandom();
 
 public:
     // Declare public virtual functions to override ...
@@ -33,11 +35,12 @@ public:
     void drawButtonBackground(juce::Graphics& g, juce::Button& button, const juce::Colour& backgroundColour,
                                              bool isMouseOverButton, bool isButtonDown) override;
     
-    void drawBubble(juce::Graphics& g, juce::BubbleComponent& bubble, const juce::Point< float >& tip,
-                                                const juce::Rectangle< float >& body) override;
-
     // Creating public colour attributes to use on components ...
-    juce::Colour foreground_colour1 = juce::Colour(31, 31, 31);
-    juce::Colour foreground_colour2 = juce::Colour(241, 241, 241);
-    juce::Colour background_colour = juce::Colour(191, 42, 42);
+    juce::Colour foreground_colour1 = juce::Colour (randomInt.nextInt(256), // selects a random colour
+                                         randomInt.nextInt(256), randomInt.nextInt(256)).brighter();
+    
+    juce::Colour foreground_colour2 = foreground_colour1.contrasting(1.0f); // find a colour which contrasts best with foreground colour 1.
+    // ( colour will be either black if light, or white if dark )
+    
+    juce::Colour background_colour = juce::Colour::contrasting(foreground_colour1, foreground_colour2); // find a colour which is contrasting with foreground colour 1 and 2.
 };

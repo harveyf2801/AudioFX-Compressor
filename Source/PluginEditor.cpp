@@ -33,7 +33,7 @@ CompressorAudioProcessorEditor::CompressorAudioProcessorEditor (CompressorAudioP
     int width = screenSize.getWidth();
     int height = screenSize.getHeight();
 
-    setSize(width*0.8, height*0.8); // ( width, height )
+    setSize(width*0.6, height*0.4); // ( width, height )
 
     setResizable(true, true); // ( allow host DAW to resize, allow user to resize )
     setResizeLimits(600, 500, width, height); // (min w, min h, max w, max h)

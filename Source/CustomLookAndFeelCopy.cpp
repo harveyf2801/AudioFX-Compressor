@@ -1,53 +1,67 @@
 /*
   ==============================================================================
 
-    CustomLookAndFeel.cpp
+    CustomLookAndFeelCopy.cpp
     Author:  Harvey Fretwell
 
   ==============================================================================
 */
 
-#include "CustomLookAndFeel.h"
+#include "CustomLookAndFeelCopy.h"
 
-void CustomLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, int height,
+void CustomLookAndFeelCopy::drawRotarySlider(juce::Graphics& g, int x, int y, int width, int height,
                                          float sliderPos, float rotaryStartAngle,
                                          float rotaryEndAngle, juce::Slider& Slider)
 {
     /* Defining the funtion to draw the rotary sliders. */
+
+    // Calculating dial dimentions ...
+    float diameter = juce::jmin(width-20.0f, height-20.0f);
+    float radius = diameter / 2;
+    float centreX = x + width / 2;
+    float centreY = y + height / 2;
+    float rX = centreX - radius;
+    float rY = centreY - radius;
+
+    // Create dial rectangular area ...
+    juce::Rectangle<float> dialArea(rX, rY, diameter, diameter);
+
+    // Draw dial fill ...
+    g.setColour(foreground_colour1);
+    g.fillEllipse(dialArea);
+
+    // Draw dial tick ...
+    g.setColour(foreground_colour2);
+    juce::Path dialTick; // create a juce path.
+    dialTick.addRoundedRectangle(0.0f, -radius, radius/10.0f, radius * 0.33f, 2.0);
     
     // Calculating dial tick angle ...
     float angle = rotaryStartAngle + (sliderPos * (rotaryEndAngle - rotaryStartAngle));
-
-    // Draw outline curve ...
-    float diameterCurve = juce::jmin(width - 10.0f, height - 10.0f);
-    float radiusCurve = diameterCurve / 2;
-    float centreXCurve = x + width / 2;
-    float centreYCurve = y + height / 2;
-    float rXCurve = centreXCurve - radiusCurve;
-    float rYCurve = centreYCurve - radiusCurve;
     
-    // Create dial rectangular area ...
-    juce::Rectangle<float> dialCurveArea(rXCurve, rYCurve, diameterCurve, diameterCurve);
+    // Fill in the dial tick path ...
+    g.fillPath(dialTick, juce::AffineTransform::rotation(angle).translated(centreX, centreY));
 
-    juce::Path curveBackground; // create a juce path.
-    juce::Path curveForeground; // create a juce path.
+    // Draw outline border ...
+    float diameterBorder = juce::jmin(width - 10.0f, height - 10.0f);
+    float radiusBorder = diameterBorder / 2;
+    float centreXBorder = x + width / 2;
+    float centreYBorder = y + height / 2;
+    float rXBorder = centreXBorder - radiusBorder;
+    float rYBorder = centreYBorder - radiusBorder;
+    
+    // Create dial border rectangular area ...
+    juce::Rectangle<float> dialBorderArea(rXBorder, rYBorder, diameterBorder, diameterBorder);
 
-    curveBackground.addArc(dialCurveArea.getX(), dialCurveArea.getY(), dialCurveArea.getWidth(),
-                  dialCurveArea.getHeight(), rotaryStartAngle, rotaryEndAngle, true);
-
-    curveForeground.addArc(dialCurveArea.getX(), dialCurveArea.getY(), dialCurveArea.getWidth(),
-        dialCurveArea.getHeight(), rotaryStartAngle, angle, true);
-
-    // Draw both paths with curved and rounded edges ...
-    g.setColour(foreground_colour1);
-    g.strokePath(curveBackground, juce::PathStrokeType(6.0f, juce::PathStrokeType::JointStyle::curved,
-                                                             juce::PathStrokeType::EndCapStyle::rounded));
     g.setColour(foreground_colour2);
-    g.strokePath(curveForeground, juce::PathStrokeType(2.0f, juce::PathStrokeType::JointStyle::curved,
-                                                            juce::PathStrokeType::EndCapStyle::rounded));
+    juce::Path border; // create a juce path.
+    border.addArc(dialBorderArea.getX(), dialBorderArea.getY(), dialBorderArea.getWidth(),
+                  dialBorderArea.getHeight(), rotaryStartAngle, rotaryEndAngle, true);
+    juce::PathStrokeType strokeType(2.0f, juce::PathStrokeType::JointStyle::curved,
+                                    juce::PathStrokeType::EndCapStyle::rounded); // create path stroke type as curved and rounded
+    g.strokePath(border, strokeType); // draw stroke path
 }
 
-void CustomLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y, int width, int height,
+void CustomLookAndFeelCopy::drawLinearSlider(juce::Graphics& g, int x, int y, int width, int height,
                                          float sliderPos,float minSliderPos, float maxSliderPos,
                                          const juce::Slider::SliderStyle, juce::Slider& Slider)
 {
@@ -82,24 +96,11 @@ void CustomLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y, int wi
     g.strokePath(sliderBackground, juce::PathStrokeType(6.0f, juce::PathStrokeType::JointStyle::curved,
                                     juce::PathStrokeType::EndCapStyle::rounded));
     g.setColour(foreground_colour2);
-    g.strokePath(sliderForeground, juce::PathStrokeType(2.0f, juce::PathStrokeType::JointStyle::curved,
+    g.strokePath(sliderForeground, juce::PathStrokeType(2.0, juce::PathStrokeType::JointStyle::curved,
                                                         juce::PathStrokeType::EndCapStyle::rounded));
 }
 
-void CustomLookAndFeel::drawBubble(juce::Graphics& g, juce::BubbleComponent& bubble, const juce::Point< float >& tip,
-                                                        const juce::Rectangle< float >& body)
-{
-    juce::Path outline;
-    outline.addRoundedRectangle(body, 10.0f);
-
-    g.setColour(foreground_colour1);
-    g.fillPath(outline);
-
-    g.setColour(foreground_colour2);
-    g.strokePath(outline, juce::PathStrokeType(1.0f));
-}
-
-void CustomLookAndFeel::drawButtonBackground(juce::Graphics& g, juce::Button& button, const juce::Colour& backgroundColour,
+void CustomLookAndFeelCopy::drawButtonBackground(juce::Graphics& g, juce::Button& button, const juce::Colour& backgroundColour,
                                               bool isMouseOverButton, bool isButtonDown)
 {
     auto baseColour = foreground_colour1;
