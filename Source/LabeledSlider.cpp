@@ -26,6 +26,8 @@ void LabeledSlider::create(juce::Slider::SliderStyle aStyle, juce::String aName,
     slider.setSliderStyle(aStyle); // ( juce::Slider::SliderStyle )
     slider.setTextBoxStyle(juce::Slider::NoTextBox, false, 100, 1005); // ( juce::Slider::TextEntryBoxPosition, readOnly, w, h )
     slider.setPopupDisplayEnabled(true, false, nullptr); // ( show on drag, show on hover, parent component pointer )
+    slider.setVelocityBasedMode(false);
+    slider.setVelocityModeParameters(0.1f, 12, 0.1f, true, juce::ModifierKeys::altModifier); // ( sensitivity, threshold, offset, userCanPressKeyToSwapMode, modifiersToSwapModes )
 
     // Set label text ...
     label.setText(aName, juce::dontSendNotification); // ( juce::String, juce::Notifications )

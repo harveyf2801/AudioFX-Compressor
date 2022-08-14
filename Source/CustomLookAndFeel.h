@@ -23,18 +23,21 @@ private:
 
 public:
     // Declare public virtual functions to override ...
+    // Sliders
     void drawRotarySlider(juce::Graphics& g, int x, int y, int width, int height, float sliderPos,
                           float rotaryStartAngle, float rotaryEndAngle, juce::Slider& Slider) override;
     
     void drawLinearSlider(juce::Graphics& g, int x, int y, int width, int height, float sliderPos,
                           float minSliderPos, float maxSliderPos, const juce::Slider::SliderStyle,
                           juce::Slider& Slider) override;
-    
-    void drawButtonBackground(juce::Graphics& g, juce::Button& button, const juce::Colour& backgroundColour,
-                                             bool isMouseOverButton, bool isButtonDown) override;
-    
+
+    // Popups
     void drawBubble(juce::Graphics& g, juce::BubbleComponent& bubble, const juce::Point< float >& tip,
-                                                const juce::Rectangle< float >& body) override;
+        const juce::Rectangle< float >& body) override;
+    
+    // Buttons
+    void drawButtonBackground(juce::Graphics& g, juce::Button& button, const juce::Colour& backgroundColour,
+                              bool isMouseOverButton, bool isButtonDown) override;
 
     // Creating public colour attributes to use on components ...
     juce::Colour foreground_colour1 = juce::Colour(31, 31, 31);

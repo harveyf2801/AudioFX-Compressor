@@ -48,7 +48,7 @@ void CustomLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int wi
 }
 
 void CustomLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y, int width, int height,
-                                         float sliderPos,float minSliderPos, float maxSliderPos,
+                                         float sliderPos, float minSliderPos, float maxSliderPos,
                                          const juce::Slider::SliderStyle, juce::Slider& Slider)
 {
     /* Defining the funtion to draw the linear sliders. */
@@ -56,51 +56,58 @@ void CustomLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y, int wi
     // Draw slider bar ...
     juce::Path sliderBackground; // path for static slider bar background.
     juce::Path sliderForeground; // path for moving slider bar.
+    juce::Path sliderThumb; // path for the thumb
 
     // Calcuating dimentions when bar is vertical ...
-    if(Slider.getSliderStyle() == juce::Slider::SliderStyle::LinearVertical)
+    if (Slider.getSliderStyle() == juce::Slider::SliderStyle::LinearVertical)
     {
         sliderBackground.startNewSubPath(x + width / 2, y);
         sliderBackground.lineTo(x + width / 2, y + height);
-        
+
         sliderForeground.startNewSubPath(x + width / 2, minSliderPos);
         sliderForeground.lineTo(x + width / 2, sliderPos);
+
+        sliderThumb.addEllipse(x-6 + width / 2, sliderPos-6, 12.0f, 12.0f);
     }
-    
+
     // Calcuating dimentions when bar is horizontal ...
     else
     {
         sliderBackground.startNewSubPath(x, y + height / 2);
         sliderBackground.lineTo(x + width, y + height / 2);
-        
+
         sliderForeground.startNewSubPath(minSliderPos, y + height / 2);
         sliderForeground.lineTo(sliderPos, y + height / 2);
+
+        sliderThumb.addEllipse(sliderPos-6, y-6 + height / 2, 12.0f, 12.0f);
     }
-    
+
     // Draw both paths with curved and rounded edges ...
     g.setColour(foreground_colour1);
     g.strokePath(sliderBackground, juce::PathStrokeType(6.0f, juce::PathStrokeType::JointStyle::curved,
-                                    juce::PathStrokeType::EndCapStyle::rounded));
+        juce::PathStrokeType::EndCapStyle::rounded));
+
     g.setColour(foreground_colour2);
     g.strokePath(sliderForeground, juce::PathStrokeType(2.0f, juce::PathStrokeType::JointStyle::curved,
-                                                        juce::PathStrokeType::EndCapStyle::rounded));
+        juce::PathStrokeType::EndCapStyle::rounded));
+
+    g.setColour(foreground_colour1);
+    g.fillPath(sliderThumb);
 }
 
-void CustomLookAndFeel::drawBubble(juce::Graphics& g, juce::BubbleComponent& bubble, const juce::Point< float >& tip,
-                                                        const juce::Rectangle< float >& body)
+void CustomLookAndFeel::drawBubble(juce::Graphics& g, juce::BubbleComponent& bubble,
+                                   const juce::Point< float >& tip, const juce::Rectangle< float >& body)
 {
     juce::Path outline;
     outline.addRoundedRectangle(body, 10.0f);
 
     g.setColour(foreground_colour1);
     g.fillPath(outline);
-
-    g.setColour(foreground_colour2);
-    g.strokePath(outline, juce::PathStrokeType(1.0f));
 }
 
-void CustomLookAndFeel::drawButtonBackground(juce::Graphics& g, juce::Button& button, const juce::Colour& backgroundColour,
-                                              bool isMouseOverButton, bool isButtonDown)
+void CustomLookAndFeel::drawButtonBackground(juce::Graphics& g, juce::Button& button,
+                                             const juce::Colour& backgroundColour,
+                                             bool isMouseOverButton, bool isButtonDown)
 {
     auto baseColour = foreground_colour1;
     
