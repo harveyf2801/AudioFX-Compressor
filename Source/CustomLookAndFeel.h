@@ -40,7 +40,7 @@ public:
                               bool isMouseOverButton, bool isButtonDown) override;
 
     // Creating public colour attributes to use on components ...
-    juce::Colour foreground_colour1 = juce::Colour(31, 31, 31);
-    juce::Colour foreground_colour2 = juce::Colour(241, 241, 241);
-    juce::Colour background_colour = juce::Colour(191, 42, 42);
+    juce::Colour foreground_colour1 = juce::Colour(14, 14, 14); // #0e0e0e
+    juce::Colour foreground_colour2 = juce::Colour(255, 255, 255); // #ffffff
+    juce::Colour background_colour = juce::Colour(45, 45, 47); // #2d2d2f
 };
