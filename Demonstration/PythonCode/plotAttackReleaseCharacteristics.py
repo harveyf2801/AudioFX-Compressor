@@ -1,5 +1,5 @@
-from gainToDecibels import gain_to_decibels
-from decibelsToGain import decibels_to_gain
+from PythonCode.gainToDecibels import gain_to_decibels
+from PythonCode.decibelsToGain import decibels_to_gain
 import matplotlib.pyplot as plt
 import numpy as np
 

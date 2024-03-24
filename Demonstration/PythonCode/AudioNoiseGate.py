@@ -1,6 +1,6 @@
 import numpy as np
-from decibelsToGain import decibels_to_gain
-from gainToDecibels import gain_to_decibels
+from PythonCode.decibelsToGain import decibels_to_gain
+from PythonCode.gainToDecibels import gain_to_decibels
 
 class AudioNoiseGate:
     ''' Creates an audio noise gate class which can be used to perform a noise gate effect on audio. '''

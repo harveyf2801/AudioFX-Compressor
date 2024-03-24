@@ -1,4 +1,4 @@
-from AudioDynamicRangeCompressor import AudioDynamicRangeCompressor
+from PythonCode.AudioDynamicRangeCompressor import AudioDynamicRangeCompressor
 
 class AudioDynamicRangeLimiter(AudioDynamicRangeCompressor):
     '''
