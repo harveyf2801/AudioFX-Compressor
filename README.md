@@ -1,5 +1,7 @@
 # AudioFX - Compressor
 
+[![cpp-linter](https://github.com/cpp-linter/cpp-linter-action/actions/workflows/cpp-linter.yml/badge.svg)](https://github.com/AudioFX-Compressor/.github/workflows/cpp-linter.yml)
+
 This project implements an audio compressor plugin using JUCE and C++. The compressor applies dynamic range compression to audio signals.
 A MATLAB/Python design script is provided in the Demonstration directory of the project, outlining the DSP used in the plugin.
 
