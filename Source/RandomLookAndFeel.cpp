@@ -1,15 +1,15 @@
 /*
   ==============================================================================
 
-    CustomLookAndFeelCopy.cpp
+    RandomLookAndFeel.cpp
     Author:  Harvey Fretwell
 
   ==============================================================================
 */
 
-#include "CustomLookAndFeelCopy.h"
+#include "RandomLookAndFeel.h"
 
-void CustomLookAndFeelCopy::drawRotarySlider(juce::Graphics& g, int x, int y, int width, int height,
+void RandomLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, int height,
                                          float sliderPos, float rotaryStartAngle,
                                          float rotaryEndAngle, juce::Slider& Slider)
 {
@@ -61,7 +61,7 @@ void CustomLookAndFeelCopy::drawRotarySlider(juce::Graphics& g, int x, int y, in
     g.strokePath(border, strokeType); // draw stroke path
 }
 
-void CustomLookAndFeelCopy::drawLinearSlider(juce::Graphics& g, int x, int y, int width, int height,
+void RandomLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y, int width, int height,
                                          float sliderPos,float minSliderPos, float maxSliderPos,
                                          const juce::Slider::SliderStyle, juce::Slider& Slider)
 {
@@ -100,7 +100,7 @@ void CustomLookAndFeelCopy::drawLinearSlider(juce::Graphics& g, int x, int y, in
                                                         juce::PathStrokeType::EndCapStyle::rounded));
 }
 
-void CustomLookAndFeelCopy::drawButtonBackground(juce::Graphics& g, juce::Button& button, const juce::Colour& backgroundColour,
+void RandomLookAndFeel::drawButtonBackground(juce::Graphics& g, juce::Button& button, const juce::Colour& backgroundColour,
                                               bool isMouseOverButton, bool isButtonDown)
 {
     auto baseColour = foreground_colour1;

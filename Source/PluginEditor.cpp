@@ -42,6 +42,7 @@ CompressorAudioProcessorEditor::CompressorAudioProcessorEditor (CompressorAudioP
 CompressorAudioProcessorEditor::~CompressorAudioProcessorEditor()
 {
     /* This is the destructor and will run when this object is deleted. */
+    setLookAndFeel(nullptr);
 }
 
 //==============================================================================
@@ -51,8 +52,7 @@ void CompressorAudioProcessorEditor::paint (juce::Graphics& g)
     /* This is where you paint any graphics onto the editor. */
 
     // Setting the editor background colour ...
-    g.setColour(customLookAndFeel.background_colour);
-    g.fillAll();
+    g.fillAll((getLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId)));
 }
 
 void CompressorAudioProcessorEditor::resized()

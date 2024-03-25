@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    CustomLookAndFeelCopy.h
+    RandomLookAndFeel.h
     Author:  Harvey Fretwell
 
   ==============================================================================
@@ -14,7 +14,7 @@
 #include <JuceHeader.h>
 
 // Create a new class inheriting from the look and feel class ...
-class CustomLookAndFeelCopy : public juce::LookAndFeel_V4
+class RandomLookAndFeel : public juce::LookAndFeel_V4
 {
     
 /* Creating a custom look and feel class for our widgets. */
